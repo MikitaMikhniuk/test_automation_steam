@@ -8,6 +8,7 @@ class BasePage:
 
     Contains basic methods available for all pages.
     """
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -28,7 +29,7 @@ class BasePage:
         Method for getting a locator with a replaced str.
 
         Input xpath - str
-        
+
         Replace what (str) - a str to be replaced.
 
         Replace to (str) - a str to be inserted.

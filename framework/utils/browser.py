@@ -12,7 +12,7 @@ class Browser:
 
     def __init__(self, driver):
         self.driver = driver
-    
+
     def navigate(self, url):
         """
         Simple method to navigae to any URL you want.
@@ -53,8 +53,8 @@ class Browser:
             options.add_argument("start-maximized")
             options.add_argument("--safebrowsing-disable-download-protection")
             file_prefs = {"download.default_directory": default_download_path,
-                        "download.prompt_for_download": False,
-                        "safebrowsing.enabled": True}
+                          "download.prompt_for_download": False,
+                          "safebrowsing.enabled": True}
             options.add_experimental_option("prefs", file_prefs)
             if factory_config["HEADLESS_MODE"] == "True":
                 options.add_argument("--headless")
@@ -75,7 +75,6 @@ class Browser:
                 options.headless = True
             s = FirefoxSerive(GeckoDriverManager().install())
         return s, options
-
 
     @staticmethod
     def tear_down(driver):

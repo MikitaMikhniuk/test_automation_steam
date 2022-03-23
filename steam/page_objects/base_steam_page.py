@@ -3,7 +3,6 @@ from framework.base.base_page import BasePage
 from selenium.webdriver.common.by import By
 from framework.utils.browser import Browser
 
-CONFIG_PATH = "framework\\resources\\factory_config.json"
 
 class BaseSteamPage(BasePage, BaseElement):
     """
@@ -12,17 +11,13 @@ class BaseSteamPage(BasePage, BaseElement):
     Contains basic methods available for all Steam pages.
 
     """
+
     def __init__(self, driver):
         super().__init__(driver)
 
-    DEFAULT_WAIT_TIME = 5
-    SELECTED_APP_ID = None
-    SELECTED_GENRE = None
-    AGE_CHECK_BASE_URL = "https://store.steampowered.com/agecheck/app/"
-    APP_BASE_URL = "https://store.steampowered.com/app/"
-    BASE_STEAM_URL = "https://store.steampowered.com/"
     LANG_DROPDOWN_ID = "language_pulldown"
-    MAIN_CONTENT_XPATH = (By.XPATH, '//div[@class="responsive_page_frame with_header"]')
+    MAIN_CONTENT_XPATH = (
+        By.XPATH, '//div[@class="responsive_page_frame with_header"]')
     INSTALL_BTN_XPATH = '//a[@class="header_installsteam_btn_content"]'
 
     def get_current_appid_from_url(self):
@@ -65,7 +60,7 @@ class BaseSteamPage(BasePage, BaseElement):
         part_x = f'"{part}"'
         lang_locator = f"//a[contains(@onclick, {part_x})]"
         return lang_locator
-    
+
     def change_lang_to(self, lang):
         """
         Complex methond is used to change language on the page.

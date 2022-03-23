@@ -3,7 +3,6 @@ import time
 from framework.utils import config_reader
 
 
-
 def set_up_download_folder():
     """
     Method is used to create a folder for the current test run.
@@ -14,7 +13,8 @@ def set_up_download_folder():
     """
     factory_config = config_reader.get_factory_config()
     os.chdir(factory_config["DEFAULT_DOWNLOAD_PATH"])
-    folder_name = factory_config["BROWSER"] + "_" + 'test_run_' + time.strftime("%d.%m.%Y^%H_%M_%S")
+    folder_name = factory_config["BROWSER"] + "_" + \
+        'test_run_' + time.strftime("%d.%m.%Y^%H_%M_%S")
     os.mkdir(folder_name)
     os.chdir(folder_name)
     print(
@@ -40,4 +40,5 @@ def wait_for_download_finish(file_name):
             time.sleep(1)
             i += 1
     if i > wait_sec:
-        raise Exception(f"Time is ticking! Unable to download file {file_name}!")
+        raise Exception(
+            f"Time is ticking! Unable to download file {file_name}!")
