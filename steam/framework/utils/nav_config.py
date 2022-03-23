@@ -1,0 +1,2 @@
+class Nav():
+    LANG = None
