@@ -19,7 +19,7 @@ class AgeVerificationPage(BaseSteamPage):
     VIEW_PAGE_BTN_ID = 'view_product_page_btn'
     AGE_CHECK_KEYWORD_ID = "/agecheck/"
 
-    def set_user_dob(self, day="28", month="August", year="1995"):
+    def set_user_dob(self, day, month, year):
         """
         Methond is used to set up a User date of birth.
 
@@ -29,7 +29,7 @@ class AgeVerificationPage(BaseSteamPage):
 
         Input (opt)-> Year (str). e.g. "1995".
         """
-        day_selector = self.find_elements_by_id(self.AGE_DAY_SELECTOR_ID)
+        day_selector = self.find_element_by_id(self.AGE_DAY_SELECTOR_ID)
         self.click_on_element(day_selector)
         self.select_by_dropdown_value(day_selector, day)
         month_selector = self.find_element_by_id(self.AGE_MONTH_SELECTOR_ID)
@@ -39,7 +39,7 @@ class AgeVerificationPage(BaseSteamPage):
         self.click_on_element(year_selector)
         self.select_by_dropdown_value(year_selector, year)
 
-    def wait_for_age_verification_page(self, app_id):
+    def wait_for_age_verification_page(self, app_id, dob):
         """
         A complex methond is used to wait for age verification page
         and pass through it if needed.
@@ -48,11 +48,14 @@ class AgeVerificationPage(BaseSteamPage):
         """
         browser = Browser(self.driver)
         url = browser.get_current_url()
+        day = (dob.split("."))[0]
+        month = (dob.split("."))[1]
+        year = (dob.split("."))[2]
         print(url)
         if self.AGE_CHECK_KEYWORD_ID in url:
             print("Age check!")
             assert app_id == self.get_current_appid_from_url()
-            self.set_user_dob()
+            self.set_user_dob(day, month, year)
             view_page_btn = self.find_element_by_id(self.VIEW_PAGE_BTN_ID)
             self.click_on_element(view_page_btn)
         else:

@@ -26,7 +26,7 @@ def test_max_discount(setup, get_test_data):
     app_id = category_page.click_on_max_discount_game()
 
     age_check = AgeVerificationPage(driver)
-    age_check.wait_for_age_verification_page(app_id)
+    age_check.wait_for_age_verification_page(app_id, get_test_data["DOB"])
 
     app_page = AppPage(driver)
     app_page.verify_curent_app_page(app_id)
