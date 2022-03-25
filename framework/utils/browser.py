@@ -47,7 +47,7 @@ class Browser:
         if factory_config["USE_DOWNLOADER"] == "True":
             default_download_path = set_up_download_folder()
         else:
-            default_download_path = "weffe"
+            default_download_path = "\\"
         if factory_config["BROWSER"] == "Chrome":
             options = webdriver.ChromeOptions()
             options.add_argument("start-maximized")
