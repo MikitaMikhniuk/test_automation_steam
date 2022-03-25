@@ -33,4 +33,4 @@ def test_max_discount(setup, get_test_data):
     app_page.navigate_to_download_page()
 
     download_page = DownloadPage(driver)
-    download_page.download_installer()
+    download_page.download_installer(get_test_data["FILE_NAME"])
