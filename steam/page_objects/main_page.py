@@ -42,5 +42,5 @@ class MainPage(BaseSteamPage):
             self.MENU_XPATH_LOCATOR, "value", menu_item_name))
         self.click_on_element(menu_item)
         submenu_item, genre = self.get_seubmenu_item(submenu_item_name)
-        self.click_on_element(submenu_item)
+        self.click_on_element_with_redirect(submenu_item)
         return genre

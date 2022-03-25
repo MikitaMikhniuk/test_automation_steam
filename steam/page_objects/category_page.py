@@ -78,7 +78,7 @@ class CategoryPage(BaseSteamPage):
         """
         element, app_id = self.get_max_discount_recommended_special_item()
         self.move_to_element(element)
-        self.click_on_element(element)
+        self.click_on_element_with_redirect(element)
         browser = Browser(self.driver)
         browser.switch_to_window(-1)
         return app_id
