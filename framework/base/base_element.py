@@ -32,6 +32,15 @@ class BaseElement:
     def click_on_element(self, element):
         element.click()
 
+    def click_on_element_with_redirect(self, element):
+        self.click_on_element(element)
+        page_state = self.driver.execute_script('return document.readyState;')
+        try:
+            assert page_state == 'complete'
+        except AssertionError:
+            print("Page was not loaded after click event")
+
+
     def scroll_element_into_view(self, element):
         """
         Scrolls down to the input Selenium element.
