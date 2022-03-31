@@ -15,7 +15,7 @@ class AppPage(BaseSteamPage):
 
     APP_NAME_ID = "appHubAppName"
 
-    def verify_curent_app_page(self, app_id):
+    def verify_current_app_page(self, app_id):
         """
         Assertion methond to compare current page app id with the given one (input).
 

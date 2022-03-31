@@ -40,7 +40,6 @@ class BaseElement:
         except AssertionError:
             print("Page was not loaded after click event")
 
-
     def scroll_element_into_view(self, element):
         """
         Scrolls down to the input Selenium element.
@@ -54,8 +53,8 @@ class BaseElement:
             "arguments[0].setAttribute('style', arguments[1])", element, style)
 
     def get_original_style(self, element):
-        orignal_style = element.get_attribute('style')
-        return orignal_style
+        original_style = element.get_attribute('style')
+        return original_style
 
     def click_on_element_with_highlight(self, element, style="border: 4px solid red"):
         original_style = self.get_original_style(element)

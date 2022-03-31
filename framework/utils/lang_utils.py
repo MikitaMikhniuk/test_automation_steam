@@ -29,7 +29,7 @@ CONFIG = load_config()
 
 def get_label(driver, key, lang=None):
     """
-    Method returs lang label for current lang.
+    Method returns lang label for current lang.
 
     Input -> Key (str).
 
