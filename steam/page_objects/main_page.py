@@ -18,14 +18,17 @@ class MainPage(BaseSteamPage):
     TAB_XPATH_LABEL = '//span[text()="value"]'
     MODAL_TAB = (By.XPATH, '//div[@class="newmodal"]')
 
-    def get_seubmenu_item(self, genre):
+    def get_submenu_item(self, genre):
         """
         Method is used to get Submenu tab element.
 
         Input-> Submenu label (str). Example: "Action".
         """
         submenu_item = self.find_element_by_xpath(
-            self.get_locator_with_replaced_xpath(self.SUBMENU_XPATH_LOCATOR, "genre", genre))
+            self.get_locator_with_replaced_xpath(
+                self.SUBMENU_XPATH_LOCATOR, "genre", genre
+            )
+        )
         self.SELECTED_GENRE = genre
         return submenu_item, genre
 
@@ -38,9 +41,12 @@ class MainPage(BaseSteamPage):
         """
         wait_until_not = UntilNot(self.driver)
         wait_until_not.visibility_of_element_located(self.MODAL_TAB)
-        menu_item = self.find_element_by_xpath(self.get_locator_with_replaced_xpath(
-            self.MENU_XPATH_LOCATOR, "value", menu_item_name))
+        menu_item = self.find_element_by_xpath(
+            self.get_locator_with_replaced_xpath(
+                self.MENU_XPATH_LOCATOR, "value", menu_item_name
+            )
+        )
         self.click_on_element(menu_item)
-        submenu_item, genre = self.get_seubmenu_item(submenu_item_name)
+        submenu_item, genre = self.get_submenu_item(submenu_item_name)
         self.click_on_element_with_redirect(submenu_item)
         return genre

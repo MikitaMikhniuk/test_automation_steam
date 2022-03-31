@@ -16,8 +16,7 @@ class BaseSteamPage(BasePage, BaseElement):
         super().__init__(driver)
 
     LANG_DROPDOWN_ID = "language_pulldown"
-    MAIN_CONTENT_XPATH = (
-        By.XPATH, '//div[@class="responsive_page_frame with_header"]')
+    MAIN_CONTENT_XPATH = (By.XPATH, '//div[@class="responsive_page_frame with_header"]')
     INSTALL_BTN_XPATH = '//a[@class="header_installsteam_btn_content"]'
 
     def get_current_appid_from_url(self):
@@ -30,7 +29,7 @@ class BaseSteamPage(BasePage, BaseElement):
         url = browser.get_current_url()
         url_splitted = url.split("/")
         app_index = url_splitted.index("app")
-        app_id = url_splitted[app_index+1]
+        app_id = url_splitted[app_index + 1]
         return app_id
 
     def get_current_appid_from_link(self, url):
@@ -43,12 +42,12 @@ class BaseSteamPage(BasePage, BaseElement):
         """
         url_splitted = url.split("/")
         app_index = url_splitted.index("app")
-        app_id_raw = url_splitted[app_index+1]
+        app_id_raw = url_splitted[app_index + 1]
         app_id_splitted = app_id_raw.split("?")
         app_id = app_id_splitted[0]
         return app_id
 
-    def get_lang_locator(self, lang):
+    def get_lang_locator(self, lang): # Соединить с метдом ниже
         """
         Methond is used to generate a lang locator.
 

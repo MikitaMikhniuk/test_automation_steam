@@ -12,11 +12,11 @@ class AgeVerificationPage(BaseSteamPage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    WARNING_LOCATOR = '//h2'
-    AGE_DAY_SELECTOR_ID = 'ageDay'
-    AGE_MONTH_SELECTOR_ID = 'ageMonth'
-    AGE_YEAR_SELECTOR_ID = 'ageYear'
-    VIEW_PAGE_BTN_ID = 'view_product_page_btn'
+    WARNING_LOCATOR = "//h2"
+    AGE_DAY_SELECTOR_ID = "ageDay"
+    AGE_MONTH_SELECTOR_ID = "ageMonth"
+    AGE_YEAR_SELECTOR_ID = "ageYear"
+    VIEW_PAGE_BTN_ID = "view_product_page_btn"
     AGE_CHECK_KEYWORD_ID = "/agecheck/"
 
     def set_user_dob(self, day, month, year):
