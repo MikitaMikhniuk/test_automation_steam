@@ -1,5 +1,4 @@
 from framework.utils.browser import Browser
-from framework.base.base_element import BaseElement
 
 
 class BasePage:
