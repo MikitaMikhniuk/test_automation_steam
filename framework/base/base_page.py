@@ -12,18 +12,6 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    HTML_HEAD_LOCATOR = '//html[@class=" responsive"]'
-
-    def get_current_language(self):
-        """
-        Returns current page lang (str) based on HTML <head>.
-        Example: "en".
-        """
-        base = BaseElement(self.driver)
-        lang_element = base.find_element_by_xpath(self.HTML_HEAD_LOCATOR)
-        current_lang = lang_element.get_attribute("lang")
-        return current_lang
-
     def get_locator_with_replaced_xpath(self, input_xpath, replace_what, replace_to):
         """
         Method for getting a locator with a replaced str.
