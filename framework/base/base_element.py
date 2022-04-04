@@ -34,6 +34,7 @@ class BaseElement:
 
     def click_on_element_with_redirect(self, element):
         self.click_on_element(element)
+        # move to Browser
         page_state = self.driver.execute_script('return document.readyState;')
         try:
             assert page_state == 'complete'
@@ -47,20 +48,6 @@ class BaseElement:
         Input-> Element (selenium element).
         """
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
-
-    def apply_style_to_element(self, element, style):
-        self.driver.execute_script(
-            "arguments[0].setAttribute('style', arguments[1])", element, style)
-
-    def get_original_style(self, element):
-        original_style = element.get_attribute('style')
-        return original_style
-
-    def click_on_element_with_highlight(self, element, style="border: 4px solid red"):
-        original_style = self.get_original_style(element)
-        self.apply_style_to_element(element, style)
-        element.click()
-        self.apply_style_to_element(element, original_style)
 
     def move_to_element(self, element):
         actions = ActionChains(self.driver)
