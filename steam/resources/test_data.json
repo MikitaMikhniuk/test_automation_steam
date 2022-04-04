@@ -4,6 +4,8 @@
     "NAV_STEP_2": "Action",
     "DESIRED_LANG_CODE": "en",
     "DESIRED_LANG_FULL": "english",
-    "DOB": "28.August.1995",
+    "DOB_DAY": "28",
+    "DOB_MONTH": "August",
+    "DOB_YEAR": "1995",
     "FILE_NAME": "SteamSetup.exe"
 }

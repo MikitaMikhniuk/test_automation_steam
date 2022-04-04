@@ -19,27 +19,22 @@ class AgeVerificationPage(BaseSteamPage):
     VIEW_PAGE_BTN_ID = "view_product_page_btn"
     AGE_CHECK_KEYWORD_ID = "/agecheck/"
 
-    def set_user_dob(self, day, month, year):
-        """
-        Methond is used to set up a User date of birth.
-
-        Input (opt) -> Day (str). e.g. "28".
-
-        Input (opt)-> Month (str). e.g. "August".
-
-        Input (opt)-> Year (str). e.g. "1995".
-        """
+    def set_day(self, day):
         day_selector = self.find_element_by_id(self.AGE_DAY_SELECTOR_ID)
         self.click_on_element(day_selector)
         self.select_by_dropdown_value(day_selector, day)
+
+    def set_month(self, month):
         month_selector = self.find_element_by_id(self.AGE_MONTH_SELECTOR_ID)
         self.click_on_element(month_selector)
         self.select_by_dropdown_value(month_selector, month)
+    
+    def set_year(self, year):
         year_selector = self.find_element_by_id(self.AGE_YEAR_SELECTOR_ID)
         self.click_on_element(year_selector)
         self.select_by_dropdown_value(year_selector, year)
 
-    def wait_for_age_verification_page(self, app_id, dob):
+    def wait_for_age_verification_page(self, app_id, day, month, year):
         """
         A complex methond is used to wait for age verification page
         and pass through it if needed.
@@ -48,14 +43,13 @@ class AgeVerificationPage(BaseSteamPage):
         """
         browser = Browser(self.driver)
         url = browser.get_current_url()
-        day = (dob.split("."))[0]
-        month = (dob.split("."))[1]
-        year = (dob.split("."))[2]
         print(url)
         if self.AGE_CHECK_KEYWORD_ID in url:
             print("Age check!")
             assert app_id == self.get_current_appid_from_url()
-            self.set_user_dob(day, month, year)
+            self.set_day(day)
+            self.set_day(month)
+            self.set_day(year)
             view_page_btn = self.find_element_by_id(self.VIEW_PAGE_BTN_ID)
             self.click_and_wait(view_page_btn)
         else:
