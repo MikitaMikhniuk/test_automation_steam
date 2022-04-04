@@ -32,7 +32,7 @@ class BaseElement:
     def click_on_element(self, element):
         element.click()
 
-    def click_on_element_with_redirect(self, element):
+    def click_and_wait(self, element):
         self.click_on_element(element)
         # move to Browser
         page_state = self.driver.execute_script('return document.readyState;')

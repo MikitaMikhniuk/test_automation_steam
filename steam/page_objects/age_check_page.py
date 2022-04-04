@@ -57,7 +57,7 @@ class AgeVerificationPage(BaseSteamPage):
             assert app_id == self.get_current_appid_from_url()
             self.set_user_dob(day, month, year)
             view_page_btn = self.find_element_by_id(self.VIEW_PAGE_BTN_ID)
-            self.click_on_element_with_redirect(view_page_btn)
+            self.click_and_wait(view_page_btn)
         else:
             print("No age check!")
             pass

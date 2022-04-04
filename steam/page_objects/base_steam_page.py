@@ -91,4 +91,4 @@ class BaseSteamPage(BasePage, BaseElement):
         Help method is used to click on Global header download button.
         """
         btn = self.find_element_by_xpath(self.INSTALL_BTN_XPATH)
-        self.click_on_element_with_redirect(btn)
+        self.click_and_wait(btn)

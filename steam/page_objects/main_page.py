@@ -48,5 +48,5 @@ class MainPage(BaseSteamPage):
         )
         self.click_on_element(menu_item)
         submenu_item, genre = self.get_submenu_item(submenu_item_name)
-        self.click_on_element_with_redirect(submenu_item)
+        self.click_and_wait(submenu_item)
         return genre
