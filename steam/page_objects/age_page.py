@@ -2,7 +2,7 @@ from steam.page_objects.base_steam_page import BaseSteamPage
 from framework.utils.browser import Browser
 
 
-class AgeVerificationPage(BaseSteamPage):
+class AgePage(BaseSteamPage):
     """
     Age verification page class.
 

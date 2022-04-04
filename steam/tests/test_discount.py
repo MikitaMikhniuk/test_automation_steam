@@ -4,7 +4,7 @@ from steam.page_objects.main_page import MainPage
 from steam.page_objects.category_page import CategoryPage
 from steam.page_objects.download_page import DownloadPage
 from steam.page_objects.app_page import AppPage
-from steam.page_objects.age_check_page import AgeVerificationPage
+from steam.page_objects.age_page import AgePage
 
 
 def test_max_discount(setup, get_test_data):
@@ -27,8 +27,8 @@ def test_max_discount(setup, get_test_data):
 
     app_id = category_page.click_on_max_discount_game()
 
-    age_check = AgeVerificationPage(driver)
-    age_check.wait_for_age_verification_page(
+    age_page = AgePage(driver)
+    age_page.wait_for_age_verification_page(
         app_id,
         get_test_data["DOB_DAY"],
         get_test_data["DOB_MONTH"],
