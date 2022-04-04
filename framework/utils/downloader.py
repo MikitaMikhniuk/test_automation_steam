@@ -27,7 +27,7 @@ def wait_for_download_finish(file_name):
     """
     Method is used to wait for a specific file to be found in current folder.
 
-    Input -> Full file name (str). e.g. "SteamSetup.exe"
+    Input -> Full file name with its extension (str).
     """
     print(os.getcwd())
     factory_config = config_reader.get_factory_config()
