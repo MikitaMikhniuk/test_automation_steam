@@ -3,11 +3,6 @@ from steam.page_objects.base_steam_page import BaseSteamPage
 
 
 class DownloadPage(BaseSteamPage):
-    """
-    Downlaod page class.
-
-    Contains methods for working with the Steam download page (about).
-    """
 
     def __init__(self, driver):
         super().__init__(driver)

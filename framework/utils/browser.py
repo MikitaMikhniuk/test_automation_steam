@@ -2,7 +2,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.firefox.service import Service as FirefoxSerive
+from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from framework.utils.downloader import set_up_download_folder
 from framework.utils import config_reader
@@ -14,24 +14,13 @@ class Browser:
         self.driver = driver
 
     def navigate(self, url):
-        """
-        Simple method to navigae to any URL you want.
-
-        Input-> URL (str).
-        """
         self.driver.get(url)
 
     def get_current_page_title(self):
-        """
-        Returns current page title (str).
-        """
         current_page_title = self.driver.title()
         return current_page_title
 
     def get_current_url(self):
-        """
-        Returns current page URL (str).
-        """
         current_url = self.driver.current_url
         return current_url
 
@@ -48,6 +37,7 @@ class Browser:
             default_download_path = set_up_download_folder()
         else:
             default_download_path = "\\"
+        # весь иф сунуть в driver_factory, а потом юзать driver_factory тут
         if factory_config["BROWSER"] == "Chrome":
             options = webdriver.ChromeOptions()
             options.add_argument("start-maximized")
@@ -73,7 +63,7 @@ class Browser:
                 "browser.download.manager.showWhenStarting", False)
             if factory_config["HEADLESS_MODE"] == "True":
                 options.headless = True
-            s = FirefoxSerive(GeckoDriverManager().install())
+            s = FirefoxService(GeckoDriverManager().install())
         return s, options
 
     @staticmethod
