@@ -27,7 +27,7 @@ class Until:
         return elements
 
     def presence_of_all_elements_located(self, elements):
-        self.wait.until(EC.presence_of_all_elements_located((elements)))
+        self.wait.until(EC.presence_of_all_elements_located(elements))
         return elements
 
 
@@ -36,7 +36,7 @@ class UntilNot(Until):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def presence_of_element_located(self, element):
+    def presence_of_element_located(self, element): #одинаковые имена с 21-ой строкой
         self.wait.until_not(EC.presence_of_element_located(element))
         return element
 
