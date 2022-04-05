@@ -4,14 +4,17 @@ from selenium.webdriver.support.ui import Select
 
 
 class BaseElement:
-    """
-    Base element class.
-
-    Contains basic methods for working with elements.
-    """
 
     def __init__(self, driver):
         self.driver = driver
+
+    def find_element(self, locator_type, locator):
+        element = self.driver.find_element(locator_type, locator)
+        return element
+
+    def find_elements(self, locator_type, locator):
+        elements = self.driver.find_elements(locator_type, locator)
+        return elements
 
     def find_element_by_xpath(self, xpath):
         element = self.driver.find_element(By.XPATH, xpath)
@@ -42,11 +45,6 @@ class BaseElement:
             print("Page was not loaded after click event")
 
     def scroll_element_into_view(self, element):
-        """
-        Scrolls down to the input Selenium element.
-
-        Input-> Element (selenium element).
-        """
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def move_to_element(self, element):
