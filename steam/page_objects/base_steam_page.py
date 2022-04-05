@@ -2,6 +2,7 @@ from framework.base.base_element import BaseElement
 from framework.base.base_page import BasePage
 from selenium.webdriver.common.by import By
 from framework.utils.browser import Browser
+from framework.utils.nav_config import Nav
 
 
 class BaseSteamPage(BasePage, BaseElement):
@@ -79,7 +80,7 @@ class BaseSteamPage(BasePage, BaseElement):
         Input -> Desired Lang code (str). Example: "en", "ru".
         Input -> Desired Lang full (str). Example: "english", "russian".
         """
-        if self.get_current_language() != desired_lang_code:
+        if Nav.LANG != desired_lang_code:
             self.change_lang_to(desired_lang_full)
             browser = Browser(self.driver)
             browser.page_reload()
