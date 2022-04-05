@@ -14,7 +14,7 @@ class MainPage(BaseSteamPage):
         super().__init__(driver)
 
     MENU_XPATH_LOCATOR = '//a[@class="pulldown_desktop" and text()="value"]'
-    SUBMENU_XPATH_LOCATOR = '//a[@class="popup_menu_item" and translate(normalize-space(text()),"\u00A0"," ")="genre"]'
+    SUBMENU_XPATH_LOCATOR = '//a[@class="popup_menu_item" and normalize-space(text())="genre"]'
     TAB_XPATH_LABEL = '//span[text()="value"]'
     MODAL_TAB = (By.XPATH, '//div[@class="newmodal"]')
 
