@@ -4,8 +4,8 @@ from steam.page_objects.base_steam_page import BaseSteamPage
 
 class DownloadPage(BaseSteamPage):
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self):
+        super().__init__()
 
     INSTALL_BUTTON_XPATH = '//a[@class="about_install_steam_link"]'
 

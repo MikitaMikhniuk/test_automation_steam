@@ -10,8 +10,8 @@ class AppPage(BaseSteamPage):
     Contains methond for working with application page.
     """
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self):
+        super().__init__()
 
     APP_NAME_ID = "appHubAppName"
 

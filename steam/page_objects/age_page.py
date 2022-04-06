@@ -9,8 +9,8 @@ class AgePage(BaseSteamPage):
     Contains basic methods available for working with Age verification page.
     """
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self):
+        super().__init__()
 
     WARNING_LOCATOR = "//h2"
     AGE_DAY_SELECTOR_ID = "ageDay"

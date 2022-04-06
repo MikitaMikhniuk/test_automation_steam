@@ -13,8 +13,8 @@ class BaseSteamPage(BasePage, BaseElement):
 
     """
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self):
+        super().__init__()
 
     LANG_DROPDOWN_ID = "language_pulldown"
     MAIN_CONTENT_XPATH = (By.XPATH, '//div[@class="responsive_page_frame with_header"]')

@@ -10,8 +10,8 @@ class MainPage(BaseSteamPage):
     Contains methods for working with the main page objects.
     """
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self):
+        super().__init__()
 
     MENU_XPATH_LOCATOR = '//a[@class="pulldown_desktop" and text()="value"]'
     SUBMENU_XPATH_LOCATOR = '//a[@class="popup_menu_item" and normalize-space(text())="genre"]'

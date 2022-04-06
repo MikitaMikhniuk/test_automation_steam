@@ -1,11 +1,10 @@
 from framework.utils.browser import Browser
 
-
 class BasePage:
 
     # искать решение для уборки driver отсюда
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self):
+        self.driver = Browser.driver
            
     def get_locator_with_replaced_xpath(self, input_xpath, replace_what, replace_to):
         locator_xpath = input_xpath.replace(replace_what, replace_to)

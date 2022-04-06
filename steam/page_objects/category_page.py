@@ -12,8 +12,8 @@ class CategoryPage(BaseSteamPage):
     Contains methods for working with Category page elements.
     """
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self):
+        super().__init__()
 
     RECOMMENDED_SPECIALS_XPATH = "//div[@class='contenthub_specials_grid']"
     APPID_LOCATOR = '//a[@class="store_capsule app_impression_tracked"]'
