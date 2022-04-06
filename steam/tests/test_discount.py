@@ -10,7 +10,6 @@ test_data_path = r"steam\resources\test_data.json"
 
 
 def test_max_discount(setup):
-    driver = setup
     test_data = get_json(test_data_path)
     main_page = MainPage()
     main_page.check_for_current_lang(
