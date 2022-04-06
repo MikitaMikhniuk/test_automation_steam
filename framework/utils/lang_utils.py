@@ -1,4 +1,5 @@
 import codecs
+from framework.utils.browser import Browser
 from framework.utils.nav_config import Nav
 from selenium.webdriver.common.by import By
 import os
@@ -27,7 +28,7 @@ def load_config():
 CONFIG = load_config()
 
 
-def get_label(driver, key, lang=None):
+def get_label(key, lang=None):
     """
     Method returns lang label for current lang.
 
@@ -35,6 +36,7 @@ def get_label(driver, key, lang=None):
 
     Input (opt) -> Lang (str).
     """
+    driver = Browser.driver
     element = driver.find_element(By.XPATH, '//html')
     Nav.LANG = element.get_attribute("lang")
     l = Nav.LANG if not lang else lang
