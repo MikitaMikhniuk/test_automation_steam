@@ -1,9 +1,9 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from framework.utils import config_reader
+from framework.utils import json_reader
 
-
-config = config_reader.get_factory_config()
+CONFIG_PATH = "steam\\resources\\factory_config.json"
+config = json_reader.get_json(CONFIG_PATH)
 
 
 class Until:

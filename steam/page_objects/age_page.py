@@ -41,7 +41,7 @@ class AgePage(BaseSteamPage):
 
         Input -> app id (str).
         """
-        browser = Browser(self.driver)
+        browser = Browser()
         url = browser.get_current_url()
         print(url)
         if self.AGE_CHECK_KEYWORD_ID in url:

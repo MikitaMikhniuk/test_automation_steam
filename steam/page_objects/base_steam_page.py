@@ -26,7 +26,7 @@ class BaseSteamPage(BasePage, BaseElement):
 
         Returns -> app id (str).
         """
-        browser = Browser(self.driver)
+        browser = Browser()
         url = browser.get_current_url()
         url_splitted = url.split("/")
         app_index = url_splitted.index("app")
@@ -82,7 +82,7 @@ class BaseSteamPage(BasePage, BaseElement):
         """
         if Nav.LANG != desired_lang_code:
             self.change_lang_to(desired_lang_full)
-            browser = Browser(self.driver)
+            browser = Browser()
             browser.page_reload()
         else:
             pass
