@@ -1,7 +1,4 @@
 {
-    "START_URL": "https://store.steampowered.com/",
-    "NAV_STEP_1": "Categories",
-    "NAV_STEP_2": "Action",
     "DESIRED_LANG_CODE": "en",
     "DESIRED_LANG_FULL": "english",
     "DOB_DAY": "28",
