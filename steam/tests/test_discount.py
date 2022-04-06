@@ -16,7 +16,7 @@ def test_max_discount(setup):
     main_page.check_for_current_lang(
         test_data["DESIRED_LANG_CODE"], test_data["DESIRED_LANG_FULL"]
     )
-    # main_page.verify_current_page_by_url(get_test_data["START_URL"])
+    # main_page.verify_current_page_by_url(test_data["START_URL"])
     main_page.navigate_menu(
         get_label("Categories"),
         get_label("Action"),
