@@ -1,5 +1,5 @@
 import codecs
-from framework.utils.browser import Browser
+from framework.browser import Browser
 from framework.utils.nav_config import Nav
 from selenium.webdriver.common.by import By
 import os

@@ -1,5 +1,5 @@
 import pytest
-from framework.utils.browser import Browser
+from framework.browser import Browser
 from framework.utils.json_reader import get_json
 
 CONFIG_PATH = "steam\\resources\\factory_config.json"

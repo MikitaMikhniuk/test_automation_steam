@@ -1,5 +1,5 @@
 from steam.page_objects.base_steam_page import BaseSteamPage
-from framework.utils.browser import Browser
+from framework.browser import Browser
 
 
 class AgePage(BaseSteamPage):

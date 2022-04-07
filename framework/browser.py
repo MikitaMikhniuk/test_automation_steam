@@ -1,4 +1,4 @@
-from framework.utils.driver_factory import DriverFactory
+from framework.driver_factory import DriverFactory
 
 
 class Browser:

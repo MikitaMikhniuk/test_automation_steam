@@ -1,5 +1,5 @@
 import random
-from framework.utils.browser import Browser
+from framework.browser import Browser
 from framework.utils.waiter import Until
 from steam.page_objects.base_steam_page import BaseSteamPage
 from selenium.webdriver.common.by import By

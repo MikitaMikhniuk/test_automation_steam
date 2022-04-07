@@ -1,4 +1,4 @@
-from framework.utils.browser import Browser
+from framework.browser import Browser
 
 browser = Browser()
 

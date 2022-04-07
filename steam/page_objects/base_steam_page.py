@@ -1,7 +1,7 @@
-from framework.base.base_element import BaseElement
-from framework.base.base_page import BasePage
+from framework.elements.base_element import BaseElement
+from framework.base_page import BasePage
 from selenium.webdriver.common.by import By
-from framework.utils.browser import Browser
+from framework.browser import Browser
 from framework.utils.nav_config import Nav
 
 
