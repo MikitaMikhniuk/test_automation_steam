@@ -1,15 +1,12 @@
 from enum import Enum, auto
-
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from framework.browser import BROWSER
-
 from framework.elements.base_element import BaseElement
 from framework.elements.button import Button
 from framework.elements.container import Container
 from framework.elements.dropdown import Dropdown
 from framework.elements.label import Label
-
 
 DEFAULT_TIMEOUT = 10
 
@@ -20,6 +17,7 @@ class ElementType(Enum):
     BUTTON = auto()
     CONTAINER = auto()
     DROPDOWN = auto()
+
 
 class ElementFactory:
     def __init__(self, driver):
@@ -34,21 +32,6 @@ class ElementFactory:
         return WebDriverWait(self.driver, timeout).until(
             EC.presence_of_all_elements_located(locator)
         )
-
-    # def get_element(self, locator, timeout=DEFAULT_TIMEOUT):
-    #     element = self.__get_element_internal(locator, timeout)
-    #     return BaseElement(self.driver, element)
-
-    # def get_elements(self, locator, timeout=DEFAULT_TIMEOUT):
-    #     elements = WebDriverWait(self.driver, timeout).until(
-    #         EC.presence_of_all_elements_located(locator)
-    #     )
-    #     return map(lambda el: BaseElement(self.driver, el), elements)
-
-    # def get_label(self, locator, timeout=DEFAULT_TIMEOUT):
-    #     return self.get_element_by_type("LABEL", locator, timeout)
-    #     # element = self.__get_element_internal(locator, timeout)
-    #     # return Label(self.driver, element)
 
     def __get_element(self, type, element):
         if type == ElementType.LABEL:

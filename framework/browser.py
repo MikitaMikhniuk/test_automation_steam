@@ -27,9 +27,10 @@ class Browser:
 
     @staticmethod
     def tear_down(driver):
-        if (driver != None):
+        if driver != None:
             print("Cleanup of test environment!")
             driver.close()
             driver.quit()
 
-BROWSER = Browser() # replace na eto
+
+BROWSER = Browser()

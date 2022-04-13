@@ -1,28 +1,10 @@
-
 from selenium.webdriver.common.action_chains import ActionChains
-
 
 
 class BaseElement:
     def __init__(self, driver, element):
         self.driver = driver
         self.element = element
-
-    # def find_element_by_xpath(self, xpath):
-    #     element = self.driver.find_element(By.XPATH, xpath)
-    #     return element
-
-    # def find_elements_by_xpath(self, xpath):
-    #     elements = self.driver.find_elements(By.XPATH, xpath)
-    #     return elements
-
-    # def find_element_by_id(self, id):
-    #     element = self.driver.find_element(By.ID, id)
-    #     return element
-
-    # def find_elements_by_id(self, id):
-    #     elements = self.driver.find_elements(By.ID, id)
-    #     return elements
 
     def click(self):
         self.element.click()
@@ -45,7 +27,7 @@ class BaseElement:
 
     def send_keys(self, keys):
         self.element.send_keys(keys)
-    
+
     def get_text(self):
         return self.element.text
 
