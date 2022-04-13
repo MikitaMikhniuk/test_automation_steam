@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from framework.browser import BROWSER
 from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
 from framework.utils.nav_config import Nav
+from steam.page_objects.header.steam_header import SteamHeader
 
 
 class BaseSteamPage(BasePage):
@@ -12,12 +13,13 @@ class BaseSteamPage(BasePage):
     Contains basic methods available for all Steam pages.
 
     """
+    steam_header = SteamHeader()
 
     def __init__(self, locator, title):
         super().__init__(locator, title)
 
-    LANG_DROPDOWN_ID = (By.ID, "language_pulldown")
-    INSTALL_BTN_XPATH = (By.XPATH, '//a[@class="header_installsteam_btn_content"]')
+    # LANG_DROPDOWN_ID = (By.ID, "language_pulldown")
+    # INSTALL_BTN_XPATH = (By.XPATH, '//a[@class="header_installsteam_btn_content"]')
 
     def get_current_appid_from_url(self):
         """
@@ -31,37 +33,37 @@ class BaseSteamPage(BasePage):
         app_id = url_splitted[app_index + 1]
         return app_id
 
-    def change_lang_to(self, lang):
-        """
-        Complex methond is used to change language on the page.
+    # def change_lang_to(self, lang):
+    #     """
+    #     Complex methond is used to change language on the page.
 
-        Input -> Lang (str). Example: "russian", "english"
-        """
-        lang_drop = ELEMENT_FACTORY.get_element(
-            ElementType.BUTTON, self.LANG_DROPDOWN_ID
-        )
-        lang_drop.click()
-        part = f"ChangeLanguage( '{lang}' )"
-        part_x = f'"{part}"'
-        lang_locator = f"//a[contains(@onclick, {part_x})]"
-        lang_btn = ELEMENT_FACTORY.get_element(
-            ElementType.BUTTON, (By.XPATH, lang_locator)
-        )
-        lang_btn.click_and_wait()
+    #     Input -> Lang (str). Example: "russian", "english"
+    #     """
+    #     lang_drop = ELEMENT_FACTORY.get_element(
+    #         ElementType.BUTTON, self.LANG_DROPDOWN_ID
+    #     )
+    #     lang_drop.click()
+    #     part = f"ChangeLanguage( '{lang}' )"
+    #     part_x = f'"{part}"'
+    #     lang_locator = f"//a[contains(@onclick, {part_x})]"
+    #     lang_btn = ELEMENT_FACTORY.get_element(
+    #         ElementType.BUTTON, (By.XPATH, lang_locator)
+    #     )
+    #     lang_btn.click_and_wait()
 
-    def check_for_current_lang(self, desired_lang):
-        """
-        Complex methond is used to check language on the page.
+    # def check_for_current_lang(self, desired_lang):
+    #     """
+    #     Complex methond is used to check language on the page.
 
-        Input -> Desired Lang code (str). Example: "en", "ru".
-        Input -> Desired Lang full (str). Example: "english", "russian".
-        """
-        if Nav.LANG != desired_lang[:1]:
-            self.change_lang_to(desired_lang)
+    #     Input -> Desired Lang code (str). Example: "en", "ru".
+    #     Input -> Desired Lang full (str). Example: "english", "russian".
+    #     """
+    #     if Nav.LANG != desired_lang[:1]:
+    #         self.change_lang_to(desired_lang)
 
-    def navigate_to_download_page(self):
-        """
-        Help method is used to click on Global header download button.
-        """
-        btn = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.INSTALL_BTN_XPATH)
-        btn.click_and_wait()
+    # def navigate_to_download_page(self):
+    #     """
+    #     Help method is used to click on Global header download button.
+    #     """
+    #     btn = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.INSTALL_BTN_XPATH)
+    #     btn.click_and_wait()
