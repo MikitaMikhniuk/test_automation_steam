@@ -49,15 +49,15 @@ class BaseSteamPage(BasePage):
         )
         lang_btn.click_and_wait()
 
-    def check_for_current_lang(self, desired_lang_code, desired_lang_full):
+    def check_for_current_lang(self, desired_lang):
         """
         Complex methond is used to check language on the page.
 
         Input -> Desired Lang code (str). Example: "en", "ru".
         Input -> Desired Lang full (str). Example: "english", "russian".
         """
-        if Nav.LANG != desired_lang_code:
-            self.change_lang_to(desired_lang_full)
+        if Nav.LANG != desired_lang[:1]:
+            self.change_lang_to(desired_lang)
 
     def navigate_to_download_page(self):
         """

@@ -12,9 +12,7 @@ test_data_path = r"steam\resources\test_data.json"
 def test_max_discount(setup):
     test_data = get_json(test_data_path)
     main_page = MainPage()
-    main_page.check_for_current_lang(
-        test_data["DESIRED_LANG_CODE"], test_data["DESIRED_LANG_FULL"]
-    )
+    main_page.check_for_current_lang(test_data["DESIRED_LANG"])
     main_page.navigate_menu(get_label("Categories"), get_label("Action"))
 
     category_page = CategoryPage()
