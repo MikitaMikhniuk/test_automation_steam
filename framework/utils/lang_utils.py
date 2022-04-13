@@ -1,5 +1,4 @@
 import codecs
-from framework.browser import Browser
 from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
 from framework.utils.nav_config import Nav
 from selenium.webdriver.common.by import By
