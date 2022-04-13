@@ -1,5 +1,4 @@
 from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
-from framework.utils.waiter import UntilNot
 from steam.page_objects.base_steam_page import BaseSteamPage
 from selenium.webdriver.common.by import By
 from framework.utils.lang_utils import get_label

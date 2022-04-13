@@ -1,8 +1,7 @@
 import random
-from framework.browser import BROWSER, Browser
+from framework.browser import BROWSER
 from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
 from framework.utils.lang_utils import get_label
-from framework.utils.waiter import Until
 from steam.page_objects.base_steam_page import BaseSteamPage
 from selenium.webdriver.common.by import By
 
@@ -31,9 +30,6 @@ class CategoryPage(BaseSteamPage):
             ElementType.CONTAINER, self.RECOMMENDED_SPECIALS_XPATH
         )
         tab.scroll_to_element()
-        wait_until = Until(self.driver)
-        wait_until.presence_of_all_elements_located(self.DISCOUNTED_PERCENTAGES_LOCATOR)
-        wait_until.presence_of_all_elements_located(self.APPID_LOCATOR)
         app_id_elements = ELEMENT_FACTORY.get_elements(
             ElementType.LABEL, self.APPID_LOCATOR
         )

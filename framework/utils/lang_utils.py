@@ -37,8 +37,6 @@ def get_label(key, lang=None):
 
     Input (opt) -> Lang (str).
     """
-    # driver = Browser.driver
-    # element = driver.find_element(By.XPATH, '//html')
     element = ELEMENT_FACTORY.get_element(ElementType.CONTAINER, (By.XPATH, "//html"))
     Nav.LANG = element.get_attribute("lang")
     l = Nav.LANG if not lang else lang

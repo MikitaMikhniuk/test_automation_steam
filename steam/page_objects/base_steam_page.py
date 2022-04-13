@@ -1,7 +1,6 @@
-from framework.elements.base_element import BaseElement
 from framework.base_page import BasePage
 from selenium.webdriver.common.by import By
-from framework.browser import BROWSER, Browser
+from framework.browser import BROWSER
 from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
 from framework.utils.nav_config import Nav
 
@@ -30,21 +29,6 @@ class BaseSteamPage(BasePage):
         url_splitted = url.split("/")
         app_index = url_splitted.index("app")
         app_id = url_splitted[app_index + 1]
-        return app_id
-
-    def get_current_appid_from_link(self, url):
-        """
-        Methond is used to get app id from any link.
-
-        Input -> URL (str).
-
-        Returns -> app id (str).
-        """
-        url_splitted = url.split("/")
-        app_index = url_splitted.index("app")
-        app_id_raw = url_splitted[app_index + 1]
-        app_id_splitted = app_id_raw.split("?")
-        app_id = app_id_splitted[0]
         return app_id
 
     def change_lang_to(self, lang):

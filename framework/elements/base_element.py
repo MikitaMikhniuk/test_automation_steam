@@ -22,7 +22,6 @@ class BaseElement:
 
     def click_and_wait(self):
         self.click()
-        # move to Browser
         self.wait.until(EC.staleness_of(self.element))
         page_state = self.driver.execute_script("return document.readyState;")
         try:
