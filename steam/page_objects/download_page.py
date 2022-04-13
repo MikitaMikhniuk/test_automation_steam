@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 
 
 class DownloadPage(BaseSteamPage):
-
     def __init__(self):
         super().__init__(self.AVAILABE_PLATFORMS, get_label("DownloadPageAnchor"))
 
@@ -18,6 +17,8 @@ class DownloadPage(BaseSteamPage):
         Method is used to click on "Download Steam" button.
         And wait for download finish.
         """
-        button = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.INSTALL_BUTTON_XPATH)
+        button = ELEMENT_FACTORY.get_element(
+            ElementType.BUTTON, self.INSTALL_BUTTON_XPATH
+        )
         button.click()
         wait_for_download_finish(filename)

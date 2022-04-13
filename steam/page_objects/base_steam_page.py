@@ -13,13 +13,11 @@ class BaseSteamPage(BasePage):
     Contains basic methods available for all Steam pages.
 
     """
+
     def __init__(self, locator, title):
         super().__init__(locator, title)
 
-    
-
     LANG_DROPDOWN_ID = (By.ID, "language_pulldown")
-    MAIN_CONTENT_XPATH = (By.XPATH, '//div[@class="responsive_page_frame with_header"]')
     INSTALL_BTN_XPATH = (By.XPATH, '//a[@class="header_installsteam_btn_content"]')
 
     def get_current_appid_from_url(self):
@@ -55,16 +53,16 @@ class BaseSteamPage(BasePage):
 
         Input -> Lang (str). Example: "russian", "english"
         """
-        # lang_drop = self.find_element_by_id(self.LANG_DROPDOWN_ID)
-        lang_drop = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.LANG_DROPDOWN_ID)
-        # self.click(lang_drop)
+        lang_drop = ELEMENT_FACTORY.get_element(
+            ElementType.BUTTON, self.LANG_DROPDOWN_ID
+        )
         lang_drop.click()
         part = f"ChangeLanguage( '{lang}' )"
         part_x = f'"{part}"'
         lang_locator = f"//a[contains(@onclick, {part_x})]"
-        # lang_btn = self.find_element_by_xpath(lang_locator)
-        lang_btn = ELEMENT_FACTORY.get_element(ElementType.BUTTON, (By.XPATH, lang_locator))
-        # self.click(lang_btn)
+        lang_btn = ELEMENT_FACTORY.get_element(
+            ElementType.BUTTON, (By.XPATH, lang_locator)
+        )
         lang_btn.click()
 
     def check_for_current_lang(self, desired_lang_code, desired_lang_full):
@@ -82,7 +80,5 @@ class BaseSteamPage(BasePage):
         """
         Help method is used to click on Global header download button.
         """
-        # btn = self.find_element_by_xpath(self.INSTALL_BTN_XPATH)
         btn = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.INSTALL_BTN_XPATH)
-        # self.click_and_wait(btn)
         btn.click_and_wait()
