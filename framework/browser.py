@@ -25,6 +25,9 @@ class Browser:
     def maximize_window(self):
         self.driver.maximize_window()
 
+    def get_document_state(self):
+        return self.driver.execute_script("return document.readyState;")
+
     @staticmethod
     def tear_down(driver):
         if driver != None:

@@ -1,6 +1,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from framework.browser import BROWSER
 from framework.utils import json_reader
 
 CONFIG_PATH = "steam\\resources\\factory_config.json"
@@ -23,9 +24,8 @@ class BaseElement:
     def click_and_wait(self):
         self.click()
         self.wait.until(EC.staleness_of(self.element))
-        page_state = self.driver.execute_script("return document.readyState;")
         try:
-            assert page_state == "complete"
+            assert BROWSER.get_document_state() == "complete"
         except AssertionError:
             print("Page was not loaded after click event")
 
