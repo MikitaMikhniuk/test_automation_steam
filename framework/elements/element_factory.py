@@ -7,8 +7,11 @@ from framework.elements.button import Button
 from framework.elements.container import Container
 from framework.elements.dropdown import Dropdown
 from framework.elements.label import Label
+from framework.utils import json_reader
 
-DEFAULT_TIMEOUT = 10
+CONFIG_PATH = "steam\\resources\\factory_config.json"
+config = json_reader.get_json(CONFIG_PATH)
+DEFAULT_TIMEOUT = config["DEFAULT_WAIT_TIME"]
 
 
 class ElementType(Enum):
