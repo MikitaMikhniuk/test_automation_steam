@@ -31,3 +31,5 @@ class Browser:
             print("Cleanup of test environment!")
             driver.close()
             driver.quit()
+
+BROWSER = Browser() # replace na eto

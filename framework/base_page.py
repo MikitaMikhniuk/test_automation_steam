@@ -1,18 +1,20 @@
-from framework.browser import Browser
+from framework.browser import BROWSER
+from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
 
-browser = Browser()
 
 class BasePage:
 
-    def __init__(self):
-        self.driver = Browser.driver
+    def __init__(self, locator, title):
+        self.driver = BROWSER.driver
+        self.verify_page_is_opened(locator, title)
            
-    def get_locator_with_replaced_xpath(self, input_xpath, replace_what, replace_to):
-        locator_xpath = input_xpath.replace(replace_what, replace_to)
-        return locator_xpath
-
     def verify_current_page_by_url(self, url):
-        assert browser.get_current_url() == url
+        assert BROWSER.get_current_url() == url
 
     def verify_current_page_by_title(self, title):
-        assert browser.get_current_page_title() == title
+        assert BROWSER.get_current_page_title() == title
+
+    def verify_page_is_opened(self, locator, title):
+        element = ELEMENT_FACTORY.get_element(ElementType.LABEL, locator)
+        if element.get_text().strip().lower() != title.lower():
+            raise Exception(f"Wrong page! Expected \"{title}\", got \"{element.get_text()}\"")

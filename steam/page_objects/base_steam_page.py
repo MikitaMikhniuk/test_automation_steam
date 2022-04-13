@@ -1,24 +1,26 @@
 from framework.elements.base_element import BaseElement
 from framework.base_page import BasePage
 from selenium.webdriver.common.by import By
-from framework.browser import Browser
+from framework.browser import BROWSER, Browser
+from framework.elements.element_factory import ELEMENT_FACTORY, ElementType
 from framework.utils.nav_config import Nav
 
 
-class BaseSteamPage(BasePage, BaseElement):
+class BaseSteamPage(BasePage):
     """
     Base Steam page class.
 
     Contains basic methods available for all Steam pages.
 
     """
+    def __init__(self, locator, title):
+        super().__init__(locator, title)
 
-    def __init__(self):
-        super().__init__()
+    
 
-    LANG_DROPDOWN_ID = "language_pulldown"
+    LANG_DROPDOWN_ID = (By.ID, "language_pulldown")
     MAIN_CONTENT_XPATH = (By.XPATH, '//div[@class="responsive_page_frame with_header"]')
-    INSTALL_BTN_XPATH = '//a[@class="header_installsteam_btn_content"]'
+    INSTALL_BTN_XPATH = (By.XPATH, '//a[@class="header_installsteam_btn_content"]')
 
     def get_current_appid_from_url(self):
         """
@@ -26,8 +28,7 @@ class BaseSteamPage(BasePage, BaseElement):
 
         Returns -> app id (str).
         """
-        browser = Browser()
-        url = browser.get_current_url()
+        url = BROWSER.get_current_url()
         url_splitted = url.split("/")
         app_index = url_splitted.index("app")
         app_id = url_splitted[app_index + 1]
@@ -48,30 +49,23 @@ class BaseSteamPage(BasePage, BaseElement):
         app_id = app_id_splitted[0]
         return app_id
 
-    def get_lang_locator(self, lang): # Соединить с метдом ниже
-        """
-        Methond is used to generate a lang locator.
-
-        Input -> Lang (str). Example: "russian", "english"
-
-        Returns -> Lang Locator (str).
-        """
-        part = f"ChangeLanguage( '{lang}' )"
-        part_x = f'"{part}"'
-        lang_locator = f"//a[contains(@onclick, {part_x})]"
-        return lang_locator
-
     def change_lang_to(self, lang):
         """
         Complex methond is used to change language on the page.
 
         Input -> Lang (str). Example: "russian", "english"
         """
-        lang_drop = self.find_element_by_id(self.LANG_DROPDOWN_ID)
-        self.click_on_element(lang_drop)
-        lang_locator = self.get_lang_locator(lang)
-        lang_btn = self.find_element_by_xpath(lang_locator)
-        self.click_on_element(lang_btn)
+        # lang_drop = self.find_element_by_id(self.LANG_DROPDOWN_ID)
+        lang_drop = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.LANG_DROPDOWN_ID)
+        # self.click(lang_drop)
+        lang_drop.click()
+        part = f"ChangeLanguage( '{lang}' )"
+        part_x = f'"{part}"'
+        lang_locator = f"//a[contains(@onclick, {part_x})]"
+        # lang_btn = self.find_element_by_xpath(lang_locator)
+        lang_btn = ELEMENT_FACTORY.get_element(ElementType.BUTTON, (By.XPATH, lang_locator))
+        # self.click(lang_btn)
+        lang_btn.click()
 
     def check_for_current_lang(self, desired_lang_code, desired_lang_full):
         """
@@ -82,14 +76,13 @@ class BaseSteamPage(BasePage, BaseElement):
         """
         if Nav.LANG != desired_lang_code:
             self.change_lang_to(desired_lang_full)
-            browser = Browser()
-            browser.page_reload()
-        else:
-            pass
+            BROWSER.page_reload()
 
     def navigate_to_download_page(self):
         """
         Help method is used to click on Global header download button.
         """
-        btn = self.find_element_by_xpath(self.INSTALL_BTN_XPATH)
-        self.click_and_wait(btn)
+        # btn = self.find_element_by_xpath(self.INSTALL_BTN_XPATH)
+        btn = ELEMENT_FACTORY.get_element(ElementType.BUTTON, self.INSTALL_BTN_XPATH)
+        # self.click_and_wait(btn)
+        btn.click_and_wait()

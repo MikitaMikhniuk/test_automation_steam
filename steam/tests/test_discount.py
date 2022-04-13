@@ -15,24 +15,24 @@ def test_max_discount(setup):
     main_page.check_for_current_lang(
         test_data["DESIRED_LANG_CODE"], test_data["DESIRED_LANG_FULL"]
     )
-    # main_page.verify_current_page_by_url(test_data["START_URL"])
+
     main_page.navigate_menu(
         get_label("Categories"),
         get_label("Action"),
     )
 
     category_page = CategoryPage()
-    category_page.verify_category_page(get_label("Action"))
 
     app_id = category_page.click_on_max_discount_game()
 
-    age_page = AgePage()
-    age_page.wait_for_age_verification_page(
-        app_id,
-        test_data["DOB_DAY"],
-        test_data["DOB_MONTH"],
-        test_data["DOB_YEAR"],
-    )
+    if AgePage.is_age_page():
+        age_page = AgePage()
+        age_page.verify_age(
+            app_id,
+            test_data["DOB_DAY"],
+            test_data["DOB_MONTH"],
+            test_data["DOB_YEAR"],
+        )
 
     app_page = AppPage()
     app_page.verify_current_app_page(app_id)

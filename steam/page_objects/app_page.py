@@ -1,3 +1,4 @@
+from framework.utils.lang_utils import get_label
 from framework.utils.waiter import Until
 from steam.page_objects.base_steam_page import BaseSteamPage
 from selenium.webdriver.common.by import By
@@ -11,9 +12,10 @@ class AppPage(BaseSteamPage):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.SYS_REQ, get_label("AppPageAnchor"))
 
     APP_NAME_ID = "appHubAppName"
+    SYS_REQ = (By.XPATH, "//div[@class='game_page_autocollapse sys_req']/h2")
 
     def verify_current_app_page(self, app_id):
         """

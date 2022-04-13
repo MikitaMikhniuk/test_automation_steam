@@ -1,5 +1,9 @@
 {
     "Categories": "Категории",
     "Action": "Экшен",
-    "Discounted": "Со скидкой"
+    "Discounted": "Со скидкой",
+    "MainPageAnchor": "Подарочные карты",
+    "AppPageAnchor": "Системные требования",
+    "AgePageAnchor": "Пожалуйста, укажите дату своего рождения:",
+    "DownloadPageAnchor": "Клиент также доступен на:"
 }

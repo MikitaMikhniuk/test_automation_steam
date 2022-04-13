@@ -1,5 +1,9 @@
 {
     "Categories": "Categories",
     "Action": "Action",
-    "Discounted": "Discounted"
+    "Discounted": "Discounted",
+    "MainPageAnchor": "Gift Cards",
+    "AppPageAnchor": "System Requirements",
+    "AgePageAnchor": "Please enter your birth date to continue:",
+    "DownloadPageAnchor": "Also available on:"
 }
