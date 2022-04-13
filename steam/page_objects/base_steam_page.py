@@ -63,7 +63,7 @@ class BaseSteamPage(BasePage):
         lang_btn = ELEMENT_FACTORY.get_element(
             ElementType.BUTTON, (By.XPATH, lang_locator)
         )
-        lang_btn.click()
+        lang_btn.click_and_wait()
 
     def check_for_current_lang(self, desired_lang_code, desired_lang_full):
         """
@@ -74,7 +74,6 @@ class BaseSteamPage(BasePage):
         """
         if Nav.LANG != desired_lang_code:
             self.change_lang_to(desired_lang_full)
-            BROWSER.page_reload()
 
     def navigate_to_download_page(self):
         """
