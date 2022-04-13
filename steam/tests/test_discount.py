@@ -15,7 +15,6 @@ def test_max_discount(setup):
     main_page.check_for_current_lang(
         test_data["DESIRED_LANG_CODE"], test_data["DESIRED_LANG_FULL"]
     )
-
     main_page.navigate_menu(get_label("Categories"), get_label("Action"))
 
     category_page = CategoryPage()
