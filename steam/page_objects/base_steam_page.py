@@ -10,6 +10,7 @@ class BaseSteamPage(BasePage):
     Contains basic methods available for all Steam pages.
 
     """
+
     steam_header = SteamHeader()
 
     def __init__(self, locator, title):
